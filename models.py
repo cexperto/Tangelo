@@ -1,5 +1,5 @@
 
-from sqlalchemy import Column, Integer, TEXT, DATE
+from sqlalchemy import Column, Integer, TEXT, Numeric
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
@@ -10,14 +10,14 @@ class RestCountries(Base):
     __tablename__ = 'restcountries'
 
     id = Column(Integer, primary_key=True)
-    index = Column(Integer)    
+    index = Column(Integer)
+    name = Column(TEXT)
     region = Column(TEXT)
-    city_name = Column(TEXT)
     lenguage = Column(TEXT)
-    time = Column(DATE)    
+    time = Column(Numeric)    
 
 def do_conection():
-    engine = create_engine('sqlite:///test.sqlite3', echo=True)
+    engine = create_engine('sqlite:///db.sqlite3', echo=True)
     conn = engine.connect()
     return conn
 
@@ -33,9 +33,5 @@ class ManageSession:
 if __name__ == '__main__':
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
-    # info = RestCountries(index=0, region='region', city_name='city_name', lenguage='lenguage', time=datetime.utcnow())
-    # Session = sessionmaker(engine)
-    # session = Session()
-    # session.add(info)
-    # session.commit()
+
     

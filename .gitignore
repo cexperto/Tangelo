@@ -74,3 +74,4 @@ tests/__init__.py
 default.db
 venv/
 *.sqlite3
+*.json
