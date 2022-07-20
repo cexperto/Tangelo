@@ -1,4 +1,3 @@
-from typing import final
 from requests.exceptions import HTTPError
 from time import time
 import requests

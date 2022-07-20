@@ -1,4 +1,3 @@
-from operator import imod
 from ManadeData import Application
 from InsertData import InsertData
 from models import do_conection
